@@ -1,0 +1,21 @@
+import math
+
+def round_to_significant_digit(value):
+    if value == 0:
+        return 0
+    else:
+        # Find the order of magnitude of the number
+        order_of_magnitude = math.floor(math.log10(abs(value)))
+       
+        # Find the first significant digit
+        first_digit = int(value / (10 ** order_of_magnitude))
+       
+        # Return the number with only the first significant digit and the rest as zeros
+        rounded_value = first_digit * (10 ** order_of_magnitude)
+       
+        return rounded_value
+
+# Example usage
+input_value = x  # Replace this with the input value from Grasshopper
+rounded_value = round_to_significant_digit(input_value)
+print(rounded_value)
